@@ -29,5 +29,24 @@ namespace MVCStok.Controllers
             db.SaveChanges();
             return View();
         }
+        public ActionResult SIL(int id)
+        {
+            var kategori = db.TBLKATEGORI.Find(id);
+            db.TBLKATEGORI.Remove(kategori);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+        public ActionResult KategoriGetir (int id )
+        {
+            var ktgr = db.TBLKATEGORI.Find(id);
+            return View("KategoriGetir", ktgr);
+        }
+        public ActionResult Guncelle(TBLKATEGORI p1)
+        {
+            var ktgr = db.TBLKATEGORI.Find(p1.KATEGORIID);
+            ktgr.KATEGORIAD = p1.KATEGORIAD;
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }

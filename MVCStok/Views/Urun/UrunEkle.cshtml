@@ -1,4 +1,4 @@
-﻿@model MVCStok.Models.Entity.TBLKATEGORI
+﻿@model MVCStok.Models.Entity.TBLURUNLER
 @{
     ViewBag.Title = "UrunEkle";
     Layout = "~/Views/Shared/_MainLayout.cshtml";
@@ -16,7 +16,7 @@
     </div>
     <div>
         <label>Kategori Seçiniz</label>
-        @Html.DropDownListFor(m=>m.KATEGORIAD,(List<SelectListItem>)ViewBag.dgr, new {@class = "form-control"})
+        @Html.DropDownListFor(m=>m.TBLKATEGORI.KATEGORIID,(List<SelectListItem>)ViewBag.dgr, new {@class = "form-control"})
     </div>
     <div>
         <label>Fiyat</label>

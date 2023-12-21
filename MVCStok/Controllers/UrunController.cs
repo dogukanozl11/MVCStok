@@ -31,9 +31,18 @@ namespace MVCStok.Controllers
         [HttpPost]
         public ActionResult UrunEkle(TBLURUNLER p1)
         {
+            var ktg = db.TBLKATEGORI.Where(m=>m.KATEGORIID==p1.TBLKATEGORI.KATEGORIID).FirstOrDefault();
+            p1.TBLKATEGORI=ktg;
             db.TBLURUNLER.Add(p1);
             db.SaveChanges();
-            return View();
+            return RedirectToAction("Index");
+        }
+        public ActionResult SIL (int id)
+        {
+            var urun = db.TBLURUNLER.Find(id);
+            db.TBLURUNLER.Remove(urun);
+            db.SaveChanges();
+            return RedirectToAction("Index");
         }
     }
 }
