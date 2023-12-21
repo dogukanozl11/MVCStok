@@ -4,6 +4,16 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_MainLayout.cshtml";
 }
+
+@using (Html.BeginForm("Index", "Musteri", FormMethod.Get))
+{
+    <p>
+        <b>Müşeri Adı :</b>  @Html.TextBox("p")
+        <input type="submit" value="Ara" />
+    </p>
+}
+
+
 <table class=" table table-bordered">
     <tr>
         <th>MÜSTERİ ID</th>
@@ -22,7 +32,7 @@
                 <td>@mus.MUSTERISOYAD</td>
                 <td><a href="/MUSTERI/SIL/@mus.MUSTERIID" class="btn btn-danger">SİL</a></td>
                 <td><a href="/MUSTERI/MusteriGetir/@mus.MUSTERIID" class="btn btn-success">GÜNCELLE</a></td>
-                <td>@Html.ActionLink("SİL BUTONU", "SIL", new { id=mus.MUSTERIID }, new { @class = "btn btn-warning", onclick = "return confirm('Gerçekten Silmek İstiyor Musunuz ?')" })</td>
+                <td>@Html.ActionLink("SİL BUTONU", "SIL", new { id = mus.MUSTERIID }, new { @class = "btn btn-warning", onclick = "return confirm('Gerçekten Silmek İstiyor Musunuz ?')" })</td>
             </tr>
         }
     </tbody>
